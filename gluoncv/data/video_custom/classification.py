@@ -234,12 +234,14 @@ class VideoClsCustom(dataset.Dataset):
                 clip_path = os.path.join(directory, line_info[0])
          
                 try:
-                    print(type(line_info[1]))
+                    print(line_info[1])
+                    print(line_info[2])
                     duration = int(line_info[1])
                     target = int(line_info[2])
+                    
                 except:
-                    duration = int(float(line_info[1]))
-                    target = int(float(line_info[2]))
+                    duration = int(line_info[1])
+                    target = int(line_info[2])
                 item = (clip_path, duration, target)
                 clips.append(item)
         return clips
